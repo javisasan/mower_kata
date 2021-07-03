@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Infrastructure\UserInterface;
+namespace App\Infrastructure\CliCommand;
 
 use App\Application\Dto\MowerDefinitionWithMovementsDto;
 use App\Application\Dto\PlateauDto;
 use App\Application\Handler\ControlHandler;
+use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 
-class FromFileMowerController
+class FromFileMowerCliCommand
 {
-    private const DEFAULT_FILE = 'INPUT_TEST_CASE.txt';
-
     /** @var string */
     private $file;
 
-    public function __construct(string $file = null)
+    public function __construct(string $file)
     {
-        $this->file = !empty($file) ? $file : self::DEFAULT_FILE;
+        $this->file = $file;
     }
 
     public function execute(): string
@@ -31,11 +30,20 @@ class FromFileMowerController
             $controlHandler->addMowerWithMovements($mowerDefinitionWithMovements);
         }
 
-        return $controlHandler->run();
+        $output = $controlHandler->run();
+
+        return join("\n", $output) . "\n";
     }
 
+    /**
+     * @return array
+     * @throws FileNotFoundException
+     */
     private function readFile(): array
     {
+        if (!file_exists($this->file))
+            throw new FileNotFoundException();
+
         $fh = fopen($this->file, 'r');
 
         do {
