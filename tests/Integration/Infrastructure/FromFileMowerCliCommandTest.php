@@ -2,10 +2,10 @@
 
 namespace Tests\Integration\Infrastructure;
 
-use App\Infrastructure\UserInterface\FromFileMowerController;
+use App\Infrastructure\CliCommand\FromFileMowerCliCommand;
 use PHPUnit\Framework\TestCase;
 
-class FromFileMowerControllerTest extends TestCase
+class FromFileMowerCliCommandTest extends TestCase
 {
     protected function setUp(): void
     {
@@ -14,7 +14,9 @@ class FromFileMowerControllerTest extends TestCase
 
     public function test_can_read_default_file()
     {
-        $sut = new FromFileMowerController();
+        $file = 'INPUT_TEST_CASE.txt';
+
+        $sut = new FromFileMowerCliCommand($file);
 
         $output = $sut->execute();
 

@@ -27,8 +27,12 @@ class ControlHandlerTest extends TestCase
 
         $output = $sut->run();
 
-        $expectedOutput = "1 3 N\n5 1 E\n";
+        $expectedOutput = [
+            '1 3 N',
+            '5 1 E'
+        ];
 
-        $this->assertEquals($expectedOutput, $output);
+        $this->assertEquals($expectedOutput[0], $output[0]);
+        $this->assertEquals($expectedOutput[1], $output[1]);
     }
 }

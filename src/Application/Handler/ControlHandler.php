@@ -24,12 +24,12 @@ class ControlHandler
         $this->mowerControlHandlers[] = new MowerControlHandler($this->plateau, $mowerDefinitionWithMovements);
     }
 
-    public function run(): string
+    public function run(): array
     {
-        $output = '';
+        $output = [];
 
         foreach ($this->mowerControlHandlers as $controlHandler) {
-            $output .= $controlHandler->run() . "\n";
+            $output[] = $controlHandler->run();
         }
 
         return $output;
