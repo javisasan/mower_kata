@@ -1,0 +1,21 @@
+{
+  "name": "javisasan/mower_kata",
+  "type": "project",
+  "require": {
+    "php": "^7.2"
+  },
+  "license": [
+    "LGPL-2.1-only",
+    "GPL-3.0-or-later"
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  }
+}
