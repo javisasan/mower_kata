@@ -1,4 +1,3 @@
 # mower_kata
 
-composer install
-
+*TO DO*
