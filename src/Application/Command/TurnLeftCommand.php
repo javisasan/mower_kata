@@ -2,10 +2,10 @@
 
 namespace App\Application\Command;
 
-use App\Domain\Command\MovementCommand;
+use App\Domain\Command\MowerControlCommand;
 use App\Domain\Model\Entity\Mower;
 
-class TurnLeftCommand implements MovementCommand
+class TurnLeftCommand implements MowerControlCommand
 {
     /** @var Mower */
     private $mower;

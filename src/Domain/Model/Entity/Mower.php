@@ -41,4 +41,9 @@ class Mower
     {
         $this->heading = new Heading($heading);
     }
+
+    public function toString(): string
+    {
+        return $this->getPosition()->getPositionX() . ' ' . $this->getPosition()->getPositionY() . ' ' . $this->getHeading();
+    }
 }

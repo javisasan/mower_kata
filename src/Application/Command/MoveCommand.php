@@ -4,10 +4,10 @@ namespace App\Application\Command;
 
 use App\Domain\Exception\MowerOutOfPlateauLimitsException;
 use App\Domain\Model\Entity\Mower;
-use App\Domain\Command\MovementCommand;
+use App\Domain\Command\MowerControlCommand;
 use App\Domain\Model\Entity\Plateau;
 
-class MoveCommand implements MovementCommand
+class MoveCommand implements MowerControlCommand
 {
     /** @var Mower */
     private $mower;

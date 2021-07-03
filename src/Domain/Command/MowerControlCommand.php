@@ -2,7 +2,7 @@
 
 namespace App\Domain\Command;
 
-interface MovementCommand
+interface MowerControlCommand
 {
     public function execute(): void;
 }
